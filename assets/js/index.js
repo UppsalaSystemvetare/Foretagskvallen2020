@@ -58,6 +58,7 @@ function checkInputs(){
                     (nameinput.val().length > 5));
 }
 
+// Sätter session med användarens namn
 function SetNameSession(nameval) {
     var payload = { name: nameval };
     $.post(
@@ -69,34 +70,42 @@ function SetNameSession(nameval) {
     );
 }
 
+// gömmer popup
 function HideNamePopUp(){
     $('#Modal').modal('hide'); 
 }
 
+// uppdaterar använderens val av företag.
 function updateUserChoice(){
-    var nameval = $('#nametag').html(name);
 
+    var payload = readFromList();
+
+    $.post(
+        "include/models/update_user_choices.php",
+        payload,
+        function successLogin(data, status, xhr){
+            
+        }
+    );
+}
+
+// Läsar av ordningen från listan med företag.
+function readFromList(){
+
+    var nameval = $("#nametag").html();
     var ul = document.getElementById("draggablePanelList");
     var items = ul.getElementsByTagName("li");
     var choices = "";
+
     for (var i = 0; i < items.length; ++i) {
         if(items[i].id === ""){ // TODO: undersök varför 1 blir "".
-            choices += 1;
+            choices += 1; 
         }
         choices += items[i].id
     }
-    alert(choices);
-    var payload = { name: nameval, order: choices };
-    // $.post(
-    //     "include/models/set_name.php",
-    //     payload,
-    //     function successLogin(data, status, xhr){
-    //         // window.location.href = "index.php";
-    //     }
-    // );
+
+    return { name: nameval, order: choices };
 }
-
-
 
 
 
