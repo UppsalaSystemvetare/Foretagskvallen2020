@@ -60,25 +60,26 @@ include("include/html/default.php");
 
                 <ul id="draggablePanelList" class="list-unstyled">
                     <li class="panel panel-info">
-                        <div class="foretag p-3 border bg-light panel-heading">Företag 1</div>
+                        <div class="foretag p-3 border bg-light panel-heading" id="1">Företag 1</div>
                     </li>
-                    <li class="panel panel-info">
-                        <div class="foretag p-3 border bg-light panel-heading">Företag 2</div>
+                    <li class="panel panel-info" id="2">
+                        <div class="foretag p-3 border bg-light panel-heading" id="2">Företag 2</div>
                     </li>
-                    <li class="panel panel-info">
-                        <div class="foretag p-3 border bg-light panel-heading">Företag 3</div>
+                    <li class="panel panel-info" id="3">
+                        <div class="foretag p-3 border bg-light panel-heading" id="3">Företag 3</div>
                     </li>
-                    <li class="panel panel-info">
-                        <div class="foretag p-3 border bg-light panel-heading">Företag 4</div>
+                    <li class="panel panel-info" id="4">
+                        <div class="foretag p-3 border bg-light panel-heading" id="4">Företag 4</div>
                     </li>
-                    <li class="panel panel-info">
-                        <div class="foretag p-3 border bg-light panel-heading">Företag 5</div>    
+                    <li class="panel panel-info" id="5">
+                        <div class="foretag p-3 border bg-light panel-heading" id="5">Företag 5</div>    
                     </li>
                 </ul>
 
             </div>
-
-            <button type="button" class="btn btn-primary centered" id="contbutton">Gå vidare</button>
+            <div class="submit_holder">
+                <button type="button" class="btn btn-primary" onclick="updateUserChoice()">Uppdatera val</button>
+            </div>
 
         </div>
 

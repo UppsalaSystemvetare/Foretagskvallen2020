@@ -73,6 +73,29 @@ function HideNamePopUp(){
     $('#Modal').modal('hide'); 
 }
 
+function updateUserChoice(){
+    var nameval = $('#nametag').html(name);
+
+    var ul = document.getElementById("draggablePanelList");
+    var items = ul.getElementsByTagName("li");
+    var choices = "";
+    for (var i = 0; i < items.length; ++i) {
+        if(items[i].id === ""){ // TODO: undersök varför 1 blir "".
+            choices += 1;
+        }
+        choices += items[i].id
+    }
+    alert(choices);
+    var payload = { name: nameval, order: choices };
+    // $.post(
+    //     "include/models/set_name.php",
+    //     payload,
+    //     function successLogin(data, status, xhr){
+    //         // window.location.href = "index.php";
+    //     }
+    // );
+}
+
 
 
 

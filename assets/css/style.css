@@ -39,6 +39,10 @@ h2 {
     margin: 15px 0;
 }
 
+.submit_holder{
+    text-align: center;
+}
+
 @media only screen and (max-width: 600px){
     body{
         background-image: url(../img/background_slim.png);
