@@ -1,3 +1,10 @@
+body {
+    background-image: url(../img/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 0;
+}
+
 h1 {
     font-size: 36px;
     text-align:center;
@@ -30,4 +37,14 @@ h2 {
 
 .foretag{
     margin: 15px 0;
+}
+
+.submit_holder{
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px){
+    body{
+        background-image: url(../img/background_slim.png);
+    }
 }
