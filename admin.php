@@ -11,5 +11,9 @@ include("include/html/default.php");
             wassup
         </div>
 
+        <div class="testData_button">
+                <button type="button" class="btn btn-primary" onclick="generateTestData()">Generera testdata</button>
+            </div>
+
     </body>
 </html>
