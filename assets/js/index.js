@@ -22,24 +22,6 @@ function init(){
 
 }
 
-// jQuery(function($) {
-//     var panelList = $('#draggablePanelList');
-//     panelList.sortable({
-//         // Only make the .panel-heading child elements support dragging.
-//         // Omit this to make then entire <li>...</li> draggable.
-//         handle: '.panel-heading', 
-//         update: function() {
-//             $('.panel', panelList).each(function(index, elem) {
-//                 var $listItem = $(elem),
-//                     newIndex = $listItem.index();
-
-//                 // Persist the new indices.
-//             });
-//         }
-//     });
-// });
-
-
 // om 'Gå vidare'-knappen trycks in döljs fönstret, name-variabeln tilldelas värdet från textfältet, namnet visas för användaren.
 $('#contbutton').click(function(){
     $('#Modal').modal('hide');
@@ -73,22 +55,15 @@ function SetNameSession(nameval) {
     );
 }
 
-// gömmer popup
-function HideNamePopUp(){
-    $('#Modal').modal('hide'); 
-}
-
 // uppdaterar använderens val av företag.
 function updateUserChoice(){
-
     var payload = readFromList();
-
     $.post(
         "include/models/update_user_choices.php",
         payload,
         function successUpdate(data, status, xhr){
             if(status === "success"){
-                $('.alert').alert();
+                $('#AlertModal').modal('show');
             }
         }
     );
@@ -96,19 +71,16 @@ function updateUserChoice(){
 
 // Läsar av ordningen från listan med företag.
 function readFromList(){
-
     var nameval = $("#nametag").html();
     var ul = document.getElementById("draggablePanelList");
     var items = ul.getElementsByTagName("li");
     var choices = "";
-
     for (var i = 0; i < items.length; ++i) {
         if(items[i].id === ""){ // TODO: undersök varför 1 blir "".
             choices += 1; 
         }
         choices += items[i].id
     }
-
     return { name: nameval, order: choices };
 }
 

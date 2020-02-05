@@ -12,19 +12,14 @@ include("include/html/default.php");
                     <div class="container-md">
                         <h1>Välkommen till företagskvällen!</h1>
                         <div class="intro-text">
-                            <p>Under företagens presentationer kommer du att kunna välja vilket företag du helst vill besöka senare.
-                            För att vi ska kunna placera dig i systemet behöver vi veta vad du heter.</p>
-                            <p> Var vänlig fyll i både för- och efternamn :</p>
-                            <br>
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="InputName" placeholder="För- och efternamn">
-                                    <small id="emailHelp" class="form-text text-muted">Namnet används vid tilldelning av företagscase och kan 
-                                    ej ändras i efterhand - så stava rätt!</small>
-                                </div>
-                            </form>
+                            <p>För att vi ska kunna placera dig i systemet behöver vi veta vad du heter.</p>
                         </div>
-                        
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="InputName" placeholder="För- och efternamn">
+                                <small id="emailHelp" class="form-text text-muted">Ange ditt namn.</small>
+                            </div>
+                        </form>
                     </div>
                 </div>
                     <div class="modal-footer">
@@ -37,7 +32,7 @@ include("include/html/default.php");
         <div class="foretag-wrapper">
             <div class="name-holder">
                 <p>Anmäld som:</p>
-                <h1><div class="h1 text-primary" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
+                <h1 class="shadowed"><div class="h1 text-primary" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
             </div>
             
             <h2>Dags att välja företag!</h2>
@@ -79,11 +74,17 @@ include("include/html/default.php");
 
         </div>
 
-        <div class="alert alert-primary alert-dismissible fade show" role="alert">
-            Val uppdaterat!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="modal fade" id="AlertModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        Val uppdaterat!
+                        <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div> 
+            </div>    
         </div>
 
     </body>

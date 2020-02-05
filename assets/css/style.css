@@ -7,6 +7,9 @@ body {
 
 h1 {
     font-size: 36px;
+}
+
+.shadowed{
     text-shadow: 1px 1px #353535;
 }
 
@@ -40,7 +43,7 @@ p {
 
 .intro-text{
     margin-top: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .small-p{
