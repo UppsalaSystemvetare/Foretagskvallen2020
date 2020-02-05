@@ -12,12 +12,14 @@ include("include/html/default.php");
                     <div class="container-md">
                         <h1>Välkommen till företagskvällen!</h1>
                         <div class="intro-text">
-                            <p>För att vi ska kunna placera dig i systemet behöver vi veta vad du heter.</p>
+                            <p>För att vi ska kunna placera dig hos ett företag behöver vi veta vad du heter. 
+                                Skriv in ditt för- och efternamn och tryck sen på "Gå vidare"!
+                            </p>
                         </div>
                         <form>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="InputName" placeholder="För- och efternamn">
-                                <small id="emailHelp" class="form-text text-muted">Ange ditt namn.</small>
+                                <input type="text" class="form-control" id="InputName" placeholder="Namn exempelsson">
+                                <small id="emailHelp" class="form-text text-muted">Ange ditt för- och efternamn.</small>
                             </div>
                         </form>
                     </div>

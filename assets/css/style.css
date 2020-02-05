@@ -4,6 +4,11 @@ body {
     background-size: cover;
     background-position: center;
     padding: 220px 0;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 h1 {
@@ -34,6 +39,10 @@ p {
     left: 50%;
     width: 50%;
     max-width: 200px;
+}
+
+.container-md{
+    padding: 10px;
 }
 
 .name-holder{
