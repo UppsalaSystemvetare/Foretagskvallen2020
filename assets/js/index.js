@@ -2,7 +2,7 @@ var nameinput;
 var contbutton;
 var name;
 
-function checkPopup(){
+function init(){
     nameinput = $("#InputName"); //textfältet för namn
     contbutton = $("#contbutton"); //gå vidare-knappen
     name = "";  //namn-variabel till databasen och front-end
@@ -17,24 +17,27 @@ function checkPopup(){
             keyboard: false
         });
     }
+    
+    $("#draggablePanelList").sortable();
+
 }
 
-jQuery(function($) {
-    var panelList = $('#draggablePanelList');
-    panelList.sortable({
-        // Only make the .panel-heading child elements support dragging.
-        // Omit this to make then entire <li>...</li> draggable.
-        handle: '.panel-heading', 
-        update: function() {
-            $('.panel', panelList).each(function(index, elem) {
-                var $listItem = $(elem),
-                    newIndex = $listItem.index();
+// jQuery(function($) {
+//     var panelList = $('#draggablePanelList');
+//     panelList.sortable({
+//         // Only make the .panel-heading child elements support dragging.
+//         // Omit this to make then entire <li>...</li> draggable.
+//         handle: '.panel-heading', 
+//         update: function() {
+//             $('.panel', panelList).each(function(index, elem) {
+//                 var $listItem = $(elem),
+//                     newIndex = $listItem.index();
 
-                // Persist the new indices.
-            });
-        }
-    });
-});
+//                 // Persist the new indices.
+//             });
+//         }
+//     });
+// });
 
 
 // om 'Gå vidare'-knappen trycks in döljs fönstret, name-variabeln tilldelas värdet från textfältet, namnet visas för användaren.
@@ -83,8 +86,10 @@ function updateUserChoice(){
     $.post(
         "include/models/update_user_choices.php",
         payload,
-        function successLogin(data, status, xhr){
-            
+        function successUpdate(data, status, xhr){
+            if(status === "success"){
+                $('.alert').alert();
+            }
         }
     );
 }

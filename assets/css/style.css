@@ -7,12 +7,28 @@ body {
 
 h1 {
     font-size: 36px;
-    text-align:center;
+    text-shadow: 1px 1px #353535;
 }
 
 h2 {
     font-size: 26px;
     text-align:center;
+}
+
+p {
+    margin: 0;
+}
+
+.alert{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    max-width: 200px;
+}
+
+.name-holder{
+    margin-bottom: 40px;
 }
 
 .foretag-wrapper{

@@ -1,9 +1,8 @@
 <?php
 session_start();
 include("include/html/default.php");
-
 ?>
-    <body onload="checkPopup();">
+    <body onload="init();">
         <!-- Modal -->
         <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered modal-dialog-lg" role="document">
@@ -37,13 +36,10 @@ include("include/html/default.php");
 
         <div class="foretag-wrapper">
             <div class="name-holder">
-                <br>
-                <div>
-                    Anmäld som:
-                </div>
-                <div class="h1 text-primary" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div>
+                <p>Anmäld som:</p>
+                <h1><div class="h1 text-primary" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
             </div>
-            <br><br>
+            
             <h2>Dags att välja företag!</h2>
             <div class="intro-text">
                 <p>
@@ -81,6 +77,13 @@ include("include/html/default.php");
                 <button type="button" class="btn btn-primary" onclick="updateUserChoice()">Uppdatera val</button>
             </div>
 
+        </div>
+
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            Val uppdaterat!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
 
     </body>
