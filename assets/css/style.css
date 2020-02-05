@@ -2,15 +2,21 @@ body {
     background-image: url(../img/background.png);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 200px 0;
+    background-position: center;
+    padding: 220px 0;
 }
 
 h1 {
     font-size: 36px;
 }
 
+.small{
+    font-size: 12px;
+}
+
 .shadowed{
-    text-shadow: 1px 1px #353535;
+    color: #1b365d;
+    text-shadow: 2px 0px #ffffff;
 }
 
 h2 {
@@ -54,6 +60,11 @@ p {
     cursor: move;
 }
 
+.foretag-list{
+    height: 430px;
+    margin: 20px 0;
+}
+
 .foretag{
     margin: 15px 0;
 }
@@ -62,8 +73,15 @@ p {
     text-align: center;
 }
 
+#alert-text{
+    text-align: center;
+}
+
 @media only screen and (max-width: 600px){
     body{
         background-image: url(../img/background_slim.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0% 0%;
     }
 }

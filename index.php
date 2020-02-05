@@ -31,8 +31,8 @@ include("include/html/default.php");
 
         <div class="foretag-wrapper">
             <div class="name-holder">
-                <p>Anmäld som:</p>
-                <h1 class="shadowed"><div class="h1 text-primary" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
+                <p class="small">Anmäld som:</p>
+                <h1 class="shadowed"><div class="h1" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
             </div>
             
             <h2>Dags att välja företag!</h2>
@@ -41,11 +41,12 @@ include("include/html/default.php");
                 Flytta runt de 5 företagen och placera de du helst vill besöka högst upp! 
                 Du kan flytta runt dem hur många gånger som helst
                 under presentationerna och du kommer att förvarnas innan
-                valen blir låsta. 
+                valen blir låsta. Om du av någon anledning skulle stänga ner sidan eller på annat sätt tappa ditt 
+                inskrivna namn kan du skriva EXAKT samma igen för att undvika dubletter för oss :)
                 </p>
             </div>
 
-            <div class="foretag p-3 border bg-light">
+            <div class="foretag-list p-3 border bg-light">
 
                 <p class="small-p">Dra och släpp företagen i önskad ordning.</p>
 
@@ -77,7 +78,7 @@ include("include/html/default.php");
         <div class="modal fade" id="AlertModal">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body">
+                    <div class="modal-body" id="alert-text">
                         Val uppdaterat!
                         <button type="button" class="close" aria-label="Close" data-dismiss="modal">
                             <span aria-hidden="true">&times;</span>
