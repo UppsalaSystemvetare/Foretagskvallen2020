@@ -1,4 +1,5 @@
 <?php
+include "header.php";
 include "hungarian.php";
 use RPFK\Hungarian\Hungarian;
 
@@ -8,9 +9,9 @@ $result = $connection->query($query);
 
 
 $query = "SELECT COUNT(foretag_id) FROM foretag";
-$result = $connection->query($query);
+$result2 = $connection->query($query);
 
-while($row = mysqli_fetch_array($result)) { 
+while($row = mysqli_fetch_array($result2)) { 
     $numberOfCompanies = $row[0];
 }
 
@@ -57,3 +58,5 @@ for ($y = 0; $y < count($allocation); $y++) {
 } 
 
 $connection = disconnect();
+
+header("location: ../../admin.php");

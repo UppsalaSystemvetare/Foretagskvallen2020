@@ -43,6 +43,12 @@ h2 {
     text-align: center;
 }
 
+
+#exTab1 .nav-pills > li > a {
+    border-radius: 0;
+}
+
+ 
 @media only screen and (max-width: 600px){
     body{
         background-image: url(../img/background_slim.png);
