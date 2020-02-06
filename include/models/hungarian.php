@@ -1,6 +1,8 @@
 <?php
 namespace RPFK\Hungarian;
 
+
+//Ska fixa så att denna importeras på rätt sätt från github nu är koden bara kopierad /Hannes
 class Hungarian
 {
     /*

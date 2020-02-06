@@ -6,7 +6,7 @@ include("include/html/default.php");
 
         <div class="container">
         <?php  
-        include "include/models/sortingScript.php";
+        include "include/models/succesRatio.php";
         ?>
             wassup
         </div>

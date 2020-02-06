@@ -1,5 +1,6 @@
 <?php
 
+//lägger till x många användare i databasen med randomiserade val. 
 $numberOfUsers = 100;
 
 $connection = connect();
