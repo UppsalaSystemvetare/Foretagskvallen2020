@@ -1,6 +1,6 @@
 <?php
 
-$numberOfUsers = 100
+$numberOfUsers = 100;
 
 $connection = connect();
 for ($i = 1; $i <= $numberOfUsers; $i++) { 
