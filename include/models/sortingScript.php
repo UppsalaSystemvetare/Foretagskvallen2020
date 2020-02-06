@@ -6,9 +6,18 @@ $connection = connect();
 $query = "SELECT user_id, user_picks FROM user_picks LIMIT 10";
 $result = $connection->query($query);
 
-// Ändra så att dessa kommer från admin sidan
-$numberOfCompanies = 5; 
+
+$query = "SELECT COUNT(foretag_id) FROM foretag";
+$result = $connection->query($query);
+
+while($row = mysqli_fetch_array($result)) { 
+    $numberOfCompanies = $row[0];
+}
+
+// Ska fixa tomma platser i matrixen ifall det finns färre folk än platser. 
 $numberOfPeople = 100;
+
+// Ändra så att denna kommer från admin sidan
 $numberOfPeoplePerCompany = 2; 
 
 $matrix = array();
