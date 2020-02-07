@@ -83,8 +83,3 @@ function readFromList(){
     }
     return { name: nameval, order: choices };
 }
-
-
-
-
-
