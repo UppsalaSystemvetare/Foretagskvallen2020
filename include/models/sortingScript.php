@@ -4,7 +4,7 @@ include "hungarian.php";
 use RPFK\Hungarian\Hungarian;
 
 $connection = connect();
-$query = "SELECT user_id, user_picks FROM user_picks LIMIT 10";
+$query = "SELECT user_id, user_picks FROM user_picks";
 $result = $connection->query($query);
 
 
@@ -19,7 +19,7 @@ while($row = mysqli_fetch_array($result2)) {
 $numberOfPeople = 100;
 
 // Ändra så att denna kommer från admin sidan
-$numberOfPeoplePerCompany = 2; 
+$numberOfPeoplePerCompany = $_POST["number_of_spots"];
 
 $matrix = array();
 $userID = array();

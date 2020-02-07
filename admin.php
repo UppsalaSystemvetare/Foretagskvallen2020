@@ -10,8 +10,12 @@ include("include/html/default.php");
             <form type="post" action="include/models/succesRatio.php">
                 <button type="submit">Show success ratio</button>
             </form>
-            <form type="post" action="include/models/check_assign.php">
+            <form method="post" action="include/models/check_assign.php">
+                <input type="text" name="test_data"/>
                 <button type="submit">Show stats</button>
+            </form>
+            <form type="post" action="include/models/testData.php">
+                <button type="submit">Generate Test Data</button>
             </form>
         </div>
 

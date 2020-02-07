@@ -4,7 +4,8 @@
     $firstorsecond = [];
     $foretag = [];
 
-
+    $test = $_POST['test_data'];
+   
     $connection = connect();
 
     $query = "SELECT foretag_id, foretag_name FROM foretag ORDER BY foretag_id";
@@ -44,5 +45,6 @@
                     <td><?php echo $foretag[$i]; ?> </td>
                     <td><?php echo $firstorsecond[$i] ?> </td>
                 </tr>
-            <?php endfor; ?>
+            <?php endfor; 
+             var_dump($test);?>
 </table>
