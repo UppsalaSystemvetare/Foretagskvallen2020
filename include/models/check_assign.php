@@ -21,9 +21,9 @@
 
     while($picks = mysqli_fetch_array($result)){
         $user_picks = $picks["user_picks"];
-        for ($i=0; $i < strlen($user_picks); $i++) { 
+        for($i=0; $i < strlen($user_picks); $i++) { 
             if(substr($user_picks, $i, 1) == "1" || substr($user_picks, $i, 1) == "2"){ //Kontrollerar om "företag i" är någons första- eller andrahandsval
-                $firstorsecond[$i] += 1;
+                $firstorsecond[$i]++;
             }
         }
     }
@@ -38,7 +38,7 @@
         <th>Antal som ville ha som första- eller andrahandsval</th>
     </tr>
         <?php
-            for ($i=0; $i < count($foretag); $i++) : ?>
+            for($i=0; $i < count($foretag); $i++) : ?>
                 <tr>
                     <td><?php echo $foretag[$i]; ?> </td>
                     <td><?php echo $firstorsecond[$i] ?> </td>
