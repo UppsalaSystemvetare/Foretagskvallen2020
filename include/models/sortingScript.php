@@ -7,7 +7,6 @@ $connection = connect();
 $query = "SELECT user_id, user_picks FROM user_picks";
 $result = $connection->query($query);
 
-
 $query = "SELECT COUNT(foretag_id) FROM foretag";
 $result2 = $connection->query($query);
 

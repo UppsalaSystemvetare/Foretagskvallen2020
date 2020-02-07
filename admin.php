@@ -4,14 +4,14 @@ include("include/html/default.php");
 ?>
     <body>
         <div class="container">
-            <form type="post" action="include/models/sortingScript.php">
+            <form method="post" action="include/models/sortingScript.php">
+                <input type="text" name="number_of_spots"/>
                 <button type="submit">Generate</button>
             </form>
             <form type="post" action="include/models/succesRatio.php">
                 <button type="submit">Show success ratio</button>
             </form>
             <form method="post" action="include/models/check_assign.php">
-                <input type="text" name="test_data"/>
                 <button type="submit">Show stats</button>
             </form>
             <form type="post" action="include/models/testData.php">
