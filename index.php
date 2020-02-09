@@ -1,6 +1,6 @@
 <?php
-session_start();
 include("include/html/default.php");
+include("include/models/header.php");
 ?>
     <body onload="init();">
         <!-- Modal -->
@@ -53,22 +53,21 @@ include("include/html/default.php");
 
                     <p class="small-p">Dra och släpp företagen i önskad ordning.</p>
 
+                    <?php
+                    $connection = connect();
+                    $query = "SELECT * FROM foretag";
+                    $result_foretag = $connection->query($query);
+                    $connection = disconnect();
+                    ?>
+
                     <ul id="draggablePanelList" class="list-unstyled">
-                        <li class="panel panel-info">
-                            <div class="foretag p-3 border bg-light panel-heading" id="1">Företag 1</div>
-                        </li>
-                        <li class="panel panel-info" id="2">
-                            <div class="foretag p-3 border bg-light panel-heading" id="2">Företag 2</div>
-                        </li>
-                        <li class="panel panel-info" id="3">
-                            <div class="foretag p-3 border bg-light panel-heading" id="3">Företag 3</div>
-                        </li>
-                        <li class="panel panel-info" id="4">
-                            <div class="foretag p-3 border bg-light panel-heading" id="4">Företag 4</div>
-                        </li>
-                        <li class="panel panel-info" id="5">
-                            <div class="foretag p-3 border bg-light panel-heading" id="5">Företag 5</div>    
-                        </li>
+                        <?php 
+                            $i = 1;
+                            while($row = $result_foretag->fetch_assoc()) { ?>
+                                <li class="panel panel-info"><div class="foretag p-3 border bg-light panel-heading" id="<?php echo $i?>"><?php echo $row["foretag_name"]?></div></li>
+                                <?php 
+                                $i = $i + 1; 
+                            }?>
                     </ul>
 
                 </div>
