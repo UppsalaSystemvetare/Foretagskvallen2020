@@ -44,5 +44,3 @@ for ($i=1; $i <= $numberOfCompanies; $i++) {
 }
 
 $connection = disconnect();
-
-//header("location: ../../admin.php");

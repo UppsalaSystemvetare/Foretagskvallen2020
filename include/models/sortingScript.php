@@ -14,10 +14,6 @@ while($row = mysqli_fetch_array($result2)) {
     $numberOfCompanies = $row[0];
 }
 
-// Ska fixa tomma platser i matrixen ifall det finns färre folk än platser. 
-$numberOfPeople = 100;
-
-// Ändra så att denna kommer från admin sidan
 $numberOfPeoplePerCompany = $_POST["number_of_spots"];
 
 $matrix = array();
@@ -42,6 +38,20 @@ while($row = mysqli_fetch_array($result)) {
     $matrix [] = $rad;
 }
 
+$numberOfPeople = count($matrix);
+
+while(count($matrix) < $numberOfCompanies * $numberOfPeoplePerCompany) {
+    $rad = array();
+
+    for ($i = 0; $i < $numberOfCompanies; $i++) {    
+
+        for ($j = 0; $j < $numberOfPeoplePerCompany; $j++) {
+            $rad[] = 100; 
+        }
+    }
+    $matrix [] = $rad;
+}
+
 $hungarian = new Hungarian($matrix);
 
 $allocation = $hungarian->solve();
@@ -49,7 +59,7 @@ $allocation = $hungarian->solve();
 $query = "DELETE FROM assigned_to_user";
 $result = $connection->query($query);
 
-for ($y = 0; $y < count($allocation); $y++) {
+for ($y = 0; $y < $numberOfPeople; $y++) {
 
     $temp = $companyId[$allocation[$y]];
     $query = "INSERT INTO assigned_to_user (user_id, foretag_id) VALUES ('$userID[$y]', '$temp')";
