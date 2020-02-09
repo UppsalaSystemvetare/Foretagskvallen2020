@@ -76,10 +76,7 @@ function readFromList(){
     var items = ul.getElementsByTagName("li");
     var choices = "";
     for (var i = 0; i < items.length; ++i) {
-        if(items[i].id === ""){ // TODO: undersök varför 1 blir "".
-            choices += 1; 
-        }
-        choices += items[i].id
+        choices += items[i].firstChild.id
     }
     return { name: nameval, order: choices };
 }

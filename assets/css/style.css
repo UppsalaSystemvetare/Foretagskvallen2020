@@ -80,7 +80,7 @@ p {
 }
 
 .foretag-list{
-    height: 430px;
+    min-height: 100%;
     margin: 20px 0;
 }
 
