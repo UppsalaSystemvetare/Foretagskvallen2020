@@ -1,13 +1,8 @@
-html {
-    height: 100%;
-}
-
 body {
     background-image: url(../img/background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;
     padding: 220px 0;
     -ms-overflow-style: none;
     min-height: 100%;

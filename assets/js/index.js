@@ -22,15 +22,8 @@ function init(){
     if(foretag && foretag !== 0){
         $(".givet-foretag").css("display", "block");
         $(".info").css("display", "none");
-        // if($(window).width() > 600){
-        //     // $("body").css("padding", "0");
-        //     // var window = $(window).height / 2;
-        //     // var divbody = $(".givet-foretag").css("height") / 2;
-        //     // alert(window);
-        //     // var margin = window + divbody;
-        //     // $("body").css("padding", "0");
-        //     // $(".givet-foretag").css("margin-top", margin);
-        // }
+        $("html").css("height", "100%");
+        $("body").css("background-attachement", "fixed");
     }
     
     $("#draggablePanelList").sortable();
