@@ -52,7 +52,7 @@ include("include/models/users.php");
                                     </button>
                                 </form>
                                 <button type="button" class="btn btn-primary" aria-label="Close" data-dismiss="modal">
-                                        NEJ
+                                    NEJ
                                 </button>
                             </div>
                         </div> 
@@ -70,6 +70,9 @@ include("include/models/users.php");
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#2a" data-toggle="tab">Tilldelade företag</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#3a" data-toggle="tab">Hantera företag</a>
                     </li>
                 </ul>
 
@@ -146,6 +149,11 @@ include("include/models/users.php");
                                         </div>
                                 <?php }?>
                             </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="3a">
+                        <div class="container admin-tables-column">
+                            sup - under konstruktion
                         </div>
                     </div>
                 </div>

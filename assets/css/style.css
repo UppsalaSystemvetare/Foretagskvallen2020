@@ -5,6 +5,7 @@ body {
     background-position: center;
     padding: 220px 0;
     -ms-overflow-style: none;
+    min-height: 100%;
 }
 
 body::-webkit-scrollbar {
@@ -56,6 +57,15 @@ p {
     padding: 25px;
 }
 
+.info{
+    display: block;
+}
+
+.givet-foretag{
+    height: 500px;
+    display: none;
+}
+
 .intro-text{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -97,5 +107,9 @@ p {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0% 0%;
+    }
+
+    .givet-foretag{
+        height: auto;
     }
 }

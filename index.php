@@ -37,44 +37,49 @@ include("include/html/default.php");
                 <h1 class="shadowed"><div class="h1" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
             </div>
             
-            <h2>Dags att välja företag!</h2>
-            <div class="intro-text">
-                <p>
-                Flytta runt de 5 företagen och placera de du helst vill besöka högst upp! 
-                Du kan flytta runt dem hur många gånger som helst
-                under presentationerna och du kommer att förvarnas innan
-                valen blir låsta. Om du av någon anledning skulle stänga ner sidan eller på annat sätt tappa ditt 
-                inskrivna namn kan du skriva EXAKT samma igen för att undvika dubletter för oss :)
-                </p>
+            <div class="info">
+                <h2>Dags att välja företag!</h2>
+                <div class="intro-text">
+                    <p>
+                    Flytta runt de 5 företagen och placera de du helst vill besöka högst upp! 
+                    Du kan flytta runt dem hur många gånger som helst
+                    under presentationerna och du kommer att förvarnas innan
+                    valen blir låsta. Om du av någon anledning skulle stänga ner sidan eller på annat sätt tappa ditt 
+                    inskrivna namn kan du skriva EXAKT samma igen för att undvika dubletter för oss :)
+                    </p>
+                </div>
+
+                <div class="foretag-list p-3 border bg-light">
+
+                    <p class="small-p">Dra och släpp företagen i önskad ordning.</p>
+
+                    <ul id="draggablePanelList" class="list-unstyled">
+                        <li class="panel panel-info">
+                            <div class="foretag p-3 border bg-light panel-heading" id="1">Företag 1</div>
+                        </li>
+                        <li class="panel panel-info" id="2">
+                            <div class="foretag p-3 border bg-light panel-heading" id="2">Företag 2</div>
+                        </li>
+                        <li class="panel panel-info" id="3">
+                            <div class="foretag p-3 border bg-light panel-heading" id="3">Företag 3</div>
+                        </li>
+                        <li class="panel panel-info" id="4">
+                            <div class="foretag p-3 border bg-light panel-heading" id="4">Företag 4</div>
+                        </li>
+                        <li class="panel panel-info" id="5">
+                            <div class="foretag p-3 border bg-light panel-heading" id="5">Företag 5</div>    
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="submit_holder">
+                    <button type="button" class="btn btn-primary" onclick="updateUserChoice()">Uppdatera val</button>
+                </div>
             </div>
 
-            <div class="foretag-list p-3 border bg-light">
-
-                <p class="small-p">Dra och släpp företagen i önskad ordning.</p>
-
-                <ul id="draggablePanelList" class="list-unstyled">
-                    <li class="panel panel-info">
-                        <div class="foretag p-3 border bg-light panel-heading" id="1">Företag 1</div>
-                    </li>
-                    <li class="panel panel-info" id="2">
-                        <div class="foretag p-3 border bg-light panel-heading" id="2">Företag 2</div>
-                    </li>
-                    <li class="panel panel-info" id="3">
-                        <div class="foretag p-3 border bg-light panel-heading" id="3">Företag 3</div>
-                    </li>
-                    <li class="panel panel-info" id="4">
-                        <div class="foretag p-3 border bg-light panel-heading" id="4">Företag 4</div>
-                    </li>
-                    <li class="panel panel-info" id="5">
-                        <div class="foretag p-3 border bg-light panel-heading" id="5">Företag 5</div>    
-                    </li>
-                </ul>
-
+            <div class="givet-foretag">
+                <h4>Du har fått plats på [FÖRETAG 1], välkommen!</h4>
             </div>
-            <div class="submit_holder">
-                <button type="button" class="btn btn-primary" onclick="updateUserChoice()">Uppdatera val</button>
-            </div>
-
         </div>
 
         <div class="modal fade" id="AlertModal">
