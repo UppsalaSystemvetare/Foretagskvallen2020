@@ -37,7 +37,7 @@ if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] <
                     </form>
                     <form type="post" action="include/models/testData.php">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Generate Testdata</button>
+                            <button type="submit" class="btn btn-primary">Generera Testdata</button>
                         </div>
                     </form>
                     <div class="form-group">

@@ -7,6 +7,7 @@ function init(){
     contbutton = $("#contbutton"); //gå vidare-knappen
     name = "";  //namn-variabel till databasen och front-end
     displayname = $("#nametag").html();
+    foretag = $(".given-foretag-text").html();
 
     if(!displayname || displayname === 0){
         contbutton.prop("disabled", checkInputs()); //gå vidare-knappen låst som default
@@ -16,6 +17,20 @@ function init(){
         $('#Modal').modal({
             keyboard: false
         });
+    }
+
+    if(foretag && foretag !== 0){
+        $(".givet-foretag").css("display", "block");
+        $(".info").css("display", "none");
+        // if($(window).width() > 600){
+        //     // $("body").css("padding", "0");
+        //     // var window = $(window).height / 2;
+        //     // var divbody = $(".givet-foretag").css("height") / 2;
+        //     // alert(window);
+        //     // var margin = window + divbody;
+        //     // $("body").css("padding", "0");
+        //     // $(".givet-foretag").css("margin-top", margin);
+        // }
     }
     
     $("#draggablePanelList").sortable();

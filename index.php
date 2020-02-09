@@ -1,6 +1,7 @@
 <?php
 include("include/html/default.php");
 include("include/models/header.php");
+include("include/models/users.php");
 ?>
     <body onload="init();">
         <!-- Modal -->
@@ -32,12 +33,13 @@ include("include/models/header.php");
         </div>
 
         <div class="foretag-wrapper">
-            <div class="name-holder">
-                <p class="small">Anmäld som:</p>
-                <h1 class="shadowed"><div class="h1" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
-            </div>
-            
             <div class="info">
+                <div class="name-holder">
+                    <p class="small">Anmäld som:</p>
+                    <h1 class="shadowed"><div class="h1" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
+                </div>
+                
+            
                 <h2>Dags att välja företag!</h2>
                 <div class="intro-text">
                     <p>
@@ -76,8 +78,21 @@ include("include/models/header.php");
                 </div>
             </div>
 
-            <div class="givet-foretag">
-                <h4>Du har fått plats på [FÖRETAG 1], välkommen!</h4>
+            <?php 
+            if(isset($_SESSION['name'])){
+
+                $result = Users::get_user_foretag_on_name($_SESSION['name']);
+                $row = mysqli_fetch_row($result);
+                $id = $row[0];
+                $foretag = Users::check_given_foretag($id);
+                $row = mysqli_fetch_row($foretag);
+            }
+            ?>
+
+            <div class="container givet-foretag">
+                <h4>Du har fått en plats hos:</h4>
+                <h1><div class="given-foretag-text"><?php echo $row[0]; ?></div></h1>
+                <h4>Välkommen!</h4>
             </div>
         </div>
 
