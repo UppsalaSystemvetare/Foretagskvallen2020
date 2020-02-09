@@ -1,0 +1,29 @@
+.admin-body {
+    background-image: none;
+    background-color: #7cade8;
+    -ms-overflow-style: none;
+    padding: 100px 0;
+}
+
+.admin-controls{
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.45);
+    color: white;
+}
+
+.admin-tables{
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.45);
+    color: white;
+}
+
+.admin-tables-column{
+    padding-top: 20px;
+}
+
+
+@media only screen and (max-width: 600px){
+    .admin-body{
+        padding: 0px;
+    }
+}

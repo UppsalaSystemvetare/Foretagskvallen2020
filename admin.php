@@ -1,25 +1,44 @@
 <?php
 include("include/models/header.php");
 include("include/html/default.php");
+include("include/models/users.php");
 ?>
-    <body>
-        <div class="container">
-            <form method="post" action="include/models/sortingScript.php">
-                <input type="text" name="number_of_spots"/>
-                <button type="submit">Generate</button>
-            </form>
-            <form type="post" action="include/models/succesRatio.php">
-                <button type="submit">Show success ratio</button>
-            </form>
-            <form method="post" action="include/models/check_assign.php">
-                <button type="submit">Show stats</button>
-            </form>
-            <form type="post" action="include/models/testData.php">
-                <button type="submit">Generate Test Data</button>
-            </form>
+    <body class="admin-body">
+        <div class="container admin-controls">
+            <h1>Controls</h1>
+            <div class="row">
+                <div class="col">
+                    <form method="post" action="include/models/sortingScript.php">
+                        <div class="form-group">
+                            <label for="number_of_spots">Antal platser per företag</label>
+                            <input type="text" class="form-control" name="number_of_spots" placeholder="20"/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Generera val åt alla användare</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <form type="post" action="include/models/succesRatio.php">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Visa nöje/missnöje</button>
+                        </div>
+                    </form>
+                    <form method="post" action="include/models/check_assign.php">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Visa val per företag</button>
+                        </div>
+                    </form>
+                    <form type="post" action="include/models/testData.php">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Generate Testdata</button>
+                        </div>
+                    </form>
+                </div>
+            </div>           
         </div>
-
-        <div class="foretag-wrapper">
+        <div class="container admin-tables">
+            <h1>Tabeller </h1>
             <div id="exTab1" class="container">	
                 <ul class="nav nav-tabs">
                     <li class="nav-item active">
@@ -78,46 +97,33 @@ include("include/html/default.php");
                         </table>
                     </div>
                     <div class="tab-pane" id="2a">
-                        <table class="table table-striped table-bordered table-sm sortable" id="user-table">
-                            <thead id="table-header">
-                                <tr>
-                                    <?php 
-                                        $connection = connect();
-                                        $query = "SELECT * FROM foretag";
-                                        $result_foretag = $connection->query($query);
-                                        $connection = disconnect();
-       
-                                        while($row = $result_foretag->fetch_assoc()) { ?>
-                                            <th><?php echo $row["foretag_name"] ?></th>
-                                    <?php }?>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $connection = connect();
-                                $query = "SELECT p.user_name, f.foretag_name 
-                                            FROM user_picks p
-                                            JOIN assigned_to_user a ON p.user_id = a.user_id
-                                            JOIN foretag f ON a.foretag_id = f.foretag_id";
-                                $result = $connection->query($query);
-                                while ($row = $result->fetch_assoc()) { ?>
-                                    <tr>
-                                        <td><?php echo $row["user_name"] ?></td>
-                                        <td><?php echo $row["foretag_name"] ?></td>
-                                    </tr>
-                                <?php } ?>  
-                            </tbody>
-                        </table>
+                        <div class="container admin-tables-column">
+                            <div class="row">
+                                <?php 
+                                    $connection = connect();
+                                    $query = "SELECT * FROM foretag";
+                                    $result_foretag = $connection->query($query);
+                                    $connection = disconnect();
+
+                                    while($row = $result_foretag->fetch_assoc()) { ?>
+                                        <div class="col-sm">
+                                            <table class="table table-striped table-bordered table-sm sortable">
+                                                <th><?php echo $row["foretag_name"] ?></th>
+
+                                                <?php
+                                                $result = Users::get_users_on_foretag($row["foretag_id"]);
+                                                while ($row = $result->fetch_assoc()) { ?>
+                                                    <tr><td><?php echo $row["user_name"] ?></td></tr>
+                                                <?php } ?>  
+
+                                            </table>
+                                        </div>
+                                <?php }?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            
         </div>
-
-   <!-- <div class="testData_button">
-            <button type="button" class="btn btn-primary" onclick="generateTestData()">Generera testdata</button>
-        </div> -->
-
     </body>
 </html>

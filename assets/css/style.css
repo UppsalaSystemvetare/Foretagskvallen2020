@@ -82,6 +82,11 @@ p {
     text-align: center;
 }
 
+.btn-primary{
+    background-color: #1b365d !important;
+    border-color: #1b365d !important;
+}
+
 #alert-text{
     text-align: center;
 }
