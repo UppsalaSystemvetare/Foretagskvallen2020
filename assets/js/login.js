@@ -21,18 +21,6 @@ function login(){
     });
 }
 
-function successLogin(data, status, xhr){
-    alert(status);
-    alert(data);
-    var payload = { ID : "1"};
-    $.ajax({
-        url: '../include/models/login_process.php',
-        dataType: 'json',
-        type: 'post',
-        data: payload
-    });
-}
-
 function failedLogin(){
     alert("Fel användarnamn eller lösenord");
 }

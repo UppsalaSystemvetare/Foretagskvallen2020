@@ -2,6 +2,11 @@
 include("include/models/header.php");
 include("include/html/default.php");
 include("include/models/users.php");
+
+if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] < 4){
+    header("Location: login.php");
+}
+
 ?>
     <body class="admin-body">
         <div class="container admin-controls">
@@ -12,9 +17,10 @@ include("include/models/users.php");
                         <div class="form-group">
                             <label for="number_of_spots">Antal platser per företag</label>
                             <input type="text" class="form-control" name="number_of_spots" placeholder="20" required/>
+                            <small id="emailHelp" class="form-text">Platserna måste räcka åt alla anmälda! (Platser/per företag * företag > antal anmälda)</small>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Generera val åt alla användare</button>
+                            <button type="submit" class="btn btn-primary">Generera val åt alla (<?php echo Users::get_nr_of_users();?>) användare</button>
                         </div>
                     </form>
                 </div>
