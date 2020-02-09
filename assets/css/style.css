@@ -7,6 +7,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    background-attachment: fixed;
     padding: 220px 0;
     -ms-overflow-style: none;
     min-height: 100%;
@@ -54,6 +55,7 @@ p {
     margin-bottom: 40px;
 }
 
+
 .foretag-wrapper{
     width: 600px;
     max-width: 100%;
@@ -63,6 +65,8 @@ p {
 
 .info{
     display: block;
+    
+    /* background-color: rgb(255, 255, 255, 0.5); */
 }
 
 .givet-foretag{

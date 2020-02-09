@@ -39,18 +39,18 @@ include("include/models/users.php");
                     <h1 class="shadowed"><div class="h1" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
                 </div>
                 
-            
-                <h2>Dags att välja företag!</h2>
-                <div class="intro-text">
-                    <p>
-                    Flytta runt de 5 företagen och placera de du helst vill besöka högst upp! 
-                    Du kan flytta runt dem hur många gånger som helst
-                    under presentationerna och du kommer att förvarnas innan
-                    valen blir låsta. Om du av någon anledning skulle stänga ner sidan eller på annat sätt tappa ditt 
-                    inskrivna namn kan du skriva EXAKT samma igen för att undvika dubletter för oss :)
-                    </p>
+                <div class="text-holder">
+                    <h2>Dags att välja företag!</h2>
+                    <div class="intro-text">
+                        <p>
+                        Flytta runt de 5 företagen och placera de du helst vill besöka högst upp! 
+                        Du kan flytta runt dem hur många gånger som helst
+                        under presentationerna och du kommer att förvarnas innan
+                        valen blir låsta. Om du av någon anledning skulle stänga ner sidan eller på annat sätt tappa ditt 
+                        inskrivna namn kan du skriva EXAKT samma igen för att undvika dubletter hos oss :)
+                        </p>
+                    </div>
                 </div>
-
                 <div class="foretag-list p-3 border bg-light">
 
                     <p class="small-p">Dra och släpp företagen i önskad ordning.</p>
