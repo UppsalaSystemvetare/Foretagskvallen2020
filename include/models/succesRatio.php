@@ -20,10 +20,13 @@ while($row = mysqli_fetch_array($result2)) {
     $picks = $row["user_picks"];
     for ($i=1; $i <= strlen($picks); $i++) { 
         if($i == $assigned[$row["user_id"]]) {
-            $allPicks[substr($picks, $i - 1, 1)] = $allPicks[substr($picks, $i - 1, 1)] + 1;
+            $pos = strpos($picks, strval($i));
+            $allPicks[$pos + 1] = $allPicks[$pos + 1] + 1;
+            break;
         }
     }
 }
+var_dump($allPicks);
 
 $query = "SELECT COUNT(foretag_id) FROM foretag";
 $result = $connection->query($query);
