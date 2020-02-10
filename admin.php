@@ -41,7 +41,7 @@ if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] <
                         </div>
                     </form>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#AlertModal">Ta bort alla anmälda</button>
+                        <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#AlertModal">Ta bort all data</button>
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@ if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] <
                             </div>
                             <div class="modal-footer">
                                 <form type="post" action="include/models/remove_users.php">
-                                    <button type="button" class="btn btn-danger" aria-label="Close" data-dismiss="modal">
+                                    <button type="submit" class="btn btn-danger">
                                         JA - TA BORT ALLA
                                     </button>
                                 </form>
