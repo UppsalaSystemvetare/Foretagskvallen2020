@@ -4,8 +4,6 @@
     $firstorsecond = [];
     $foretag = [];
 
-    $test = $_POST['test_data'];
-   
     $connection = connect();
 
     $query = "SELECT foretag_id, foretag_name FROM foretag ORDER BY foretag_id";
@@ -23,10 +21,10 @@
 
     while($picks = mysqli_fetch_array($result)){
         $user_picks = $picks["user_picks"];
-        for($i=0; $i < strlen($user_picks); $i++) { 
-            if(substr($user_picks, $i, 1) == "1" || substr($user_picks, $i, 1) == "2"){ //Kontrollerar om "företag i" är någons första- eller andrahandsval
-                $firstorsecond[$i]++;
-            }
+
+        for($i=0; $i < 2; $i++) { 
+            $val = substr($user_picks, $i, 1);
+            $firstorsecond[$val-1]++;
         }
     }
 
