@@ -29,6 +29,8 @@
     }
 
     $connection = disconnect();
+
+    include("../html/default.php");
 ?>
 
 

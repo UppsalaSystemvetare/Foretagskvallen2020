@@ -36,6 +36,7 @@ while($row = mysqli_fetch_array($result)) {
 
 $connection = disconnect();
 
+include("../html/default.php");
 ?>
 
 <table>
