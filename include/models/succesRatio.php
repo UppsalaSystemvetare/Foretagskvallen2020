@@ -26,7 +26,6 @@ while($row = mysqli_fetch_array($result2)) {
         }
     }
 }
-var_dump($allPicks);
 
 $query = "SELECT COUNT(foretag_id) FROM foretag";
 $result = $connection->query($query);
