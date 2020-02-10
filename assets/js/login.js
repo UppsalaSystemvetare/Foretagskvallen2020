@@ -13,9 +13,11 @@ function login(){
                 url: 'include/models/login_process.php',
                 dataType: 'json',
                 type: 'post',
-                data: payload
+                data: payload,
+                success: function gotoAdmin(data, status, xhr){
+                    window.location.href = "admin.php";
+                }
             });
-            window.location.href = "admin.php";
         },
         error: failedLogin
     });

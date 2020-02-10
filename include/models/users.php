@@ -28,7 +28,7 @@
     
     static public function check_given_foretag($id){
         $connection = connect();
-        $query = "SELECT f.foretag_name 
+        $query = "SELECT f.foretag_name, f.foretag_location 
                     FROM user_picks p
                     JOIN assigned_to_user a ON p.user_id = a.user_id
                     JOIN foretag f ON a.foretag_id = f.foretag_id
