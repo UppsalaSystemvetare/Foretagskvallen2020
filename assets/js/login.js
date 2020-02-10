@@ -13,14 +13,12 @@ function login(){
                 url: 'include/models/login_process.php',
                 dataType: 'json',
                 type: 'post',
-                data: payload,
-                success: function gotoAdmin(data, status, xhr){
-                    window.location.href = "admin.php";
-                }
+                data: payload
             });
         },
         error: failedLogin
     });
+    setTimeout(function(){ window.location.href = "admin.php"; }, 500);
 }
 
 function failedLogin(){
