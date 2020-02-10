@@ -143,7 +143,7 @@ if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] <
                                     while($row = $result_foretag->fetch_assoc()) { ?>
                                         <div class="col-sm">
                                             <table class="table table-striped table-bordered table-sm sortable">
-                                                <th><?php echo $row["foretag_name"] ?></th>
+                                                <th><?php echo $row["foretag_name"] ?> (<?php echo $row["foretag_location"] ?>)</th>
 
                                                 <?php
                                                 $result = Users::get_users_on_foretag($row["foretag_id"]);
