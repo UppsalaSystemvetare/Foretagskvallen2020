@@ -24,18 +24,19 @@ $counter = 0;
 while($row = mysqli_fetch_array($result)) {
     $userID [] = $row["user_id"];
     $picks = $row["user_picks"];
-    $rad = array();
+    $rad_mult = array();
 
     for ($i = 0; $i < $numberOfCompanies; $i++) {    
+        $CompPos = strpos($picks, strval($i+1));
 
         for ($j = 0; $j < $numberOfPeoplePerCompany; $j++) {
-            $rad[] = substr($picks, $i, 1); 
-
+            $rad_mult[($i * $numberOfPeoplePerCompany) + $j] = $CompPos + 1;
             $companyId [$counter] = ($i + 1);
             $counter++;
         }
     }
-    $matrix [] = $rad;
+    
+    $matrix [] = $rad_mult;
 }
 
 $numberOfPeople = count($matrix);
