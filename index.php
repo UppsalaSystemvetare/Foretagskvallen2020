@@ -1,6 +1,7 @@
 <?php
-session_start();
 include("include/html/default.php");
+include("include/models/header.php");
+include("include/models/users.php");
 ?>
     <body onload="init();">
         <!-- Modal -->
@@ -32,49 +33,67 @@ include("include/html/default.php");
         </div>
 
         <div class="foretag-wrapper">
-            <div class="name-holder">
-                <p class="small">Anmäld som:</p>
-                <h1 class="shadowed"><div class="h1" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
+            <div class="info">
+                <div class="name-holder">
+                    <p class="small">Anmäld som:</p>
+                    <h1 class="shadowed"><div class="h1" id="nametag"><?php if(isset($_SESSION['name']) && !empty($_SESSION['name'])) { echo $_SESSION['name']; } ?></div></h1>
+                </div>
+                
+                <div class="text-holder">
+                    <h2>Dags att välja företag!</h2>
+                    <div class="intro-text">
+                        <p>
+                        Flytta runt de 5 företagen och placera de du helst vill besöka högst upp! 
+                        Du kan flytta runt dem hur många gånger som helst
+                        under presentationerna och du kommer att förvarnas innan
+                        valen blir låsta. Om du av någon anledning skulle stänga ner sidan eller på annat sätt tappa ditt 
+                        inskrivna namn kan du skriva EXAKT samma igen för att undvika dubletter hos oss :)
+                        </p>
+                    </div>
+                </div>
+                <div class="foretag-list p-3 border bg-light">
+
+                    <p class="small-p">Dra och släpp företagen i önskad ordning.</p>
+
+                    <?php
+                    $connection = connect();
+                    $query = "SELECT * FROM foretag";
+                    $result_foretag = $connection->query($query);
+                    $connection = disconnect();
+                    ?>
+
+                    <ul id="draggablePanelList" class="list-unstyled">
+                        <?php 
+                            $i = 1;
+                            while($row = $result_foretag->fetch_assoc()) { ?>
+                                <li class="panel panel-info"><div class="foretag p-3 border bg-light panel-heading" id="<?php echo $i?>"><?php echo $row["foretag_name"]?></div></li>
+                                <?php 
+                                $i = $i + 1; 
+                            }?>
+                    </ul>
+
+                </div>
+                <div class="submit_holder">
+                    <button type="button" class="btn btn-primary" onclick="updateUserChoice()">Uppdatera val</button>
+                </div>
             </div>
-            
-            <h2>Dags att välja företag!</h2>
-            <div class="intro-text">
-                <p>
-                Flytta runt de 5 företagen och placera de du helst vill besöka högst upp! 
-                Du kan flytta runt dem hur många gånger som helst
-                under presentationerna och du kommer att förvarnas innan
-                valen blir låsta. Om du av någon anledning skulle stänga ner sidan eller på annat sätt tappa ditt 
-                inskrivna namn kan du skriva EXAKT samma igen för att undvika dubletter för oss :)
-                </p>
+
+            <?php 
+            if(isset($_SESSION['name'])){
+
+                $result = Users::get_user_foretag_on_name($_SESSION['name']);
+                $row = mysqli_fetch_row($result);
+                $id = $row[0];
+                $foretag = Users::check_given_foretag($id);
+                $row = mysqli_fetch_row($foretag);
+            }
+            ?>
+
+            <div class="container givet-foretag">
+                <h4>Du har fått en plats hos</h4>
+                <h1><div class="given-foretag-text"><?php echo $row[0]; ?></div></h1>
+                <h4>Välkommen till <?php echo $row[1]; ?>!</h4>
             </div>
-
-            <div class="foretag-list p-3 border bg-light">
-
-                <p class="small-p">Dra och släpp företagen i önskad ordning.</p>
-
-                <ul id="draggablePanelList" class="list-unstyled">
-                    <li class="panel panel-info">
-                        <div class="foretag p-3 border bg-light panel-heading" id="1">Företag 1</div>
-                    </li>
-                    <li class="panel panel-info" id="2">
-                        <div class="foretag p-3 border bg-light panel-heading" id="2">Företag 2</div>
-                    </li>
-                    <li class="panel panel-info" id="3">
-                        <div class="foretag p-3 border bg-light panel-heading" id="3">Företag 3</div>
-                    </li>
-                    <li class="panel panel-info" id="4">
-                        <div class="foretag p-3 border bg-light panel-heading" id="4">Företag 4</div>
-                    </li>
-                    <li class="panel panel-info" id="5">
-                        <div class="foretag p-3 border bg-light panel-heading" id="5">Företag 5</div>    
-                    </li>
-                </ul>
-
-            </div>
-            <div class="submit_holder">
-                <button type="button" class="btn btn-primary" onclick="updateUserChoice()">Uppdatera val</button>
-            </div>
-
         </div>
 
         <div class="modal fade" id="AlertModal">

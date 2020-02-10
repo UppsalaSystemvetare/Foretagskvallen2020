@@ -2,9 +2,10 @@ body {
     background-image: url(../img/background.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     padding: 220px 0;
     -ms-overflow-style: none;
+    min-height: 100%;
 }
 
 body::-webkit-scrollbar {
@@ -49,11 +50,27 @@ p {
     margin-bottom: 40px;
 }
 
+
 .foretag-wrapper{
     width: 600px;
     max-width: 100%;
     margin: 0 auto;
     padding: 25px;
+}
+
+.info{
+    display: block;
+    
+    /* background-color: rgb(255, 255, 255, 0.5); */
+}
+
+.givet-foretag{
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .intro-text{
@@ -70,7 +87,7 @@ p {
 }
 
 .foretag-list{
-    height: 430px;
+    min-height: 100%;
     margin: 20px 0;
 }
 
@@ -80,6 +97,11 @@ p {
 
 .submit_holder{
     text-align: center;
+}
+
+.btn-primary{
+    background-color: #1b365d !important;
+    border-color: #1b365d !important;
 }
 
 #alert-text{
@@ -92,5 +114,9 @@ p {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0% 0%;
+    }
+
+    .givet-foretag{
+        height: auto;
     }
 }

@@ -32,15 +32,21 @@ while($row = mysqli_fetch_array($result)) {
     $numberOfCompanies = $row[0];
 }
 
-for ($i=1; $i <= $numberOfCompanies; $i++) { 
-    if(!$allPicks[$i] == 0) {
-        $number = $allPicks[$i];
-    }
-    else {
-        $number = 0;
-    }
-
-    echo "$number" . " personer fick deras " . $i . ":a-handsval ";
-}
-
 $connection = disconnect();
+
+?>
+
+<table>
+    <?php
+        for($i=1; $i <= $numberOfCompanies; $i++) : 
+            if(!$allPicks[$i] == 0) {
+                $number = $allPicks[$i];
+            }
+            else {
+                $number = 0;
+            }?>
+            <tr>
+                <td><?php echo "$number" . " personer fick deras " . $i . ":a-handsval "; ?> </td>
+            </tr>
+        <?php endfor; ?>
+</table>

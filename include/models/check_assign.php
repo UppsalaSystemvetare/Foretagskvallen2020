@@ -39,12 +39,11 @@
         <th>Företag</th>
         <th>Antal som ville ha som första- eller andrahandsval</th>
     </tr>
-        <?php
-            for($i=0; $i < count($foretag); $i++) : ?>
-                <tr>
-                    <td><?php echo $foretag[$i]; ?> </td>
-                    <td><?php echo $firstorsecond[$i] ?> </td>
-                </tr>
-            <?php endfor; 
-             var_dump($test);?>
+    <?php
+        for($i=0; $i < count($foretag); $i++) : ?>
+            <tr>
+                <td><?php echo $foretag[$i]; ?> </td>
+                <td><?php echo $firstorsecond[$i] ?> </td>
+            </tr>
+        <?php endfor; ?>
 </table>
