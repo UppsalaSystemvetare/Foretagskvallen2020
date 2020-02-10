@@ -90,7 +90,7 @@ include("include/models/users.php");
             ?>
 
             <div class="container givet-foretag">
-                <h4>Du har fått en plats hos:</h4>
+                <h4>Du har fått en plats hos</h4>
                 <h1><div class="given-foretag-text"><?php echo $row[0]; ?></div></h1>
                 <h4>Välkommen till <?php echo $row[1]; ?>!</h4>
             </div>
