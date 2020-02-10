@@ -14,5 +14,4 @@ for ($i = 1; $i <= $numberOfUsers; $i++) {
 
 $connection = disconnect();
 
-
-    
+header("location: ../../admin.php");
