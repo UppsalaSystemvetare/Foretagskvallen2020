@@ -7,6 +7,7 @@ function init(){
     contbutton = $("#contbutton"); //gå vidare-knappen
     name = "";  //namn-variabel till databasen och front-end
     displayname = $("#nametag").html();
+    foretag = $(".given-foretag-text").html();
 
     if(!displayname || displayname === 0){
         contbutton.prop("disabled", checkInputs()); //gå vidare-knappen låst som default
@@ -16,6 +17,13 @@ function init(){
         $('#Modal').modal({
             keyboard: false
         });
+    }
+
+    if(foretag && foretag !== 0){
+        $(".givet-foretag").css("display", "block");
+        $(".info").css("display", "none");
+        $("html").css("height", "100%");
+        $("body").css("background-attachement", "fixed");
     }
     
     $("#draggablePanelList").sortable();
@@ -76,10 +84,7 @@ function readFromList(){
     var items = ul.getElementsByTagName("li");
     var choices = "";
     for (var i = 0; i < items.length; ++i) {
-        if(items[i].id === ""){ // TODO: undersök varför 1 blir "".
-            choices += 1; 
-        }
-        choices += items[i].id
+        choices += items[i].firstChild.id
     }
     return { name: nameval, order: choices };
 }
