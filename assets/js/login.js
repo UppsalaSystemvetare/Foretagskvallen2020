@@ -15,22 +15,10 @@ function login(){
                 type: 'post',
                 data: payload
             });
-            window.location.href = "admin.php";
         },
         error: failedLogin
     });
-}
-
-function successLogin(data, status, xhr){
-    alert(status);
-    alert(data);
-    var payload = { ID : "1"};
-    $.ajax({
-        url: '../include/models/login_process.php',
-        dataType: 'json',
-        type: 'post',
-        data: payload
-    });
+    setTimeout(function(){ window.location.href = "admin.php"; }, 500);
 }
 
 function failedLogin(){

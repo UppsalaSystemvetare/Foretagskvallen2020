@@ -1,10 +1,13 @@
+
 body {
-    background-image: url(../img/background.png);
+    /* background-image: url(../img/background.png); */
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     padding: 220px 0;
     -ms-overflow-style: none;
+    min-height: 100%;
+    font-family: 'Rubik', sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -13,6 +16,7 @@ body::-webkit-scrollbar {
 
 h1 {
     font-size: 36px;
+    text-align: center;
 }
 
 .small{
@@ -24,13 +28,14 @@ h1 {
     text-shadow: 2px 0px #ffffff;
 }
 
-h2 {
+h2{
     font-size: 26px;
-    text-align:center;
+    text-align: center;
 }
 
 p {
     margin: 0;
+    text-align: center;
 }
 
 .alert{
@@ -41,12 +46,34 @@ p {
     max-width: 200px;
 }
 
+.modal-content{
+  border-radius: 50px;
+}
+
+
+.modal-body{
+  padding-bottom: 0px;
+}
+
 .container-md{
-    padding: 10px;
+    padding: 20px;
+    padding-bottom: 10px;
 }
 
 .name-holder{
     margin-bottom: 40px;
+    text-align: center;
+}
+
+.text-holder {
+  padding-bottom: 20px;
+}
+
+.foretag-list{
+  border-radius: 30px;
+  background-color: #ffffff;
+  min-height: 100%;
+  margin: 20px 0;
 }
 
 .foretag-wrapper{
@@ -56,6 +83,21 @@ p {
     padding: 25px;
 }
 
+.info{
+    display: block;
+
+    /* background-color: rgb(255, 255, 255, 0.5); */
+}
+
+.givet-foretag{
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .intro-text{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -63,23 +105,39 @@ p {
 
 .small-p{
     font-size: 12px;
+    text-align: center;
 }
 
 #draggablePanelList .panel {
     cursor: move;
 }
 
-.foretag-list{
-    height: 430px;
-    margin: 20px 0;
-}
-
 .foretag{
     margin: 15px 0;
+    border-radius: 50px;
 }
 
 .submit_holder{
     text-align: center;
+}
+
+.btn-primary{
+    /* background-color: #1b365d !important;
+    border-color: #1b365d !important; */
+    display: inline-block;
+    border-radius: 10px;
+    background-color: #f2ae42;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    align-self: center;
+    font-size: 15px;
+    padding: 10px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    margin-bottom: 20px;
 }
 
 #alert-text{
@@ -88,9 +146,84 @@ p {
 
 @media only screen and (max-width: 600px){
     body{
-        background-image: url(../img/background_slim.png);
+        /* background-image: url(../img/background_slim.png); */
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0% 0%;
     }
+
+    .givet-foretag{
+        height: auto;
+    }
 }
+
+/* Popup box BEGIN */
+
+.hover_bkgr_fricc{
+    background: white;
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position: center;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+    z-index: 999;
+    margin-top: -500px;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 20px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    cursor: pointer;
+    font-size: 20px;
+    display: inline-block;
+    font-weight: bold;
+    background-color: white;
+    margin-left: 8px;
+}
+
+#infoIcon {
+    margin-bottom: 15px;
+}
+
+#lightBulbs {
+    text-align: left;
+}
+/* Popup box */

@@ -20,7 +20,9 @@ while($row = mysqli_fetch_array($result2)) {
     $picks = $row["user_picks"];
     for ($i=1; $i <= strlen($picks); $i++) { 
         if($i == $assigned[$row["user_id"]]) {
-            $allPicks[substr($picks, $i - 1, 1)] = $allPicks[substr($picks, $i - 1, 1)] + 1;
+            $pos = strpos($picks, strval($i));
+            $allPicks[$pos + 1] = $allPicks[$pos + 1] + 1;
+            break;
         }
     }
 }
@@ -32,17 +34,22 @@ while($row = mysqli_fetch_array($result)) {
     $numberOfCompanies = $row[0];
 }
 
-for ($i=1; $i <= $numberOfCompanies; $i++) { 
-    if(!$allPicks[$i] == 0) {
-        $number = $allPicks[$i];
-    }
-    else {
-        $number = 0;
-    }
-
-    echo "$number" . " personer fick deras " . $i . ":a-handsval ";
-}
-
 $connection = disconnect();
 
-//header("location: ../../admin.php");
+include("../html/default.php");
+?>
+
+<table>
+    <?php
+        for($i=1; $i <= $numberOfCompanies; $i++) : 
+            if(!$allPicks[$i] == 0) {
+                $number = $allPicks[$i];
+            }
+            else {
+                $number = 0;
+            }?>
+            <tr>
+                <td><?php echo "$number" . " personer fick deras " . $i . ":a-handsval "; ?> </td>
+            </tr>
+        <?php endfor; ?>
+</table>
