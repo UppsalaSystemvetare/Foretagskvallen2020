@@ -3,9 +3,11 @@ include("include/models/header.php");
 include("include/html/default.php");
 include("include/models/users.php");
 
-if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] < 4){
+
+/*if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] < 4){
     header("Location: login.php");
-}
+} tillåter mig att nå adminsidan utan inlogg pga felet :)*/
+
 
 ?>
     <body class="admin-body">
@@ -45,6 +47,7 @@ if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] <
                     </div>
                 </div>
 
+
                 <div class="modal fade" id="AlertModal">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -61,15 +64,16 @@ if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] <
                                     NEJ
                                 </button>
                             </div>
-                        </div> 
-                    </div>    
+                        </div>
+                    </div>
                 </div>
 
-            </div>           
+            </div>
         </div>
         <div class="container admin-tables">
             <h1>Tabeller </h1>
-            <div id="exTab1" class="container">	
+            <div id="exTab1" class="container">
+
                 <ul class="nav nav-tabs">
                     <li class="nav-item active">
                         <a class="nav-link active" href="#1a" data-toggle="tab">Användares val</a>
@@ -115,18 +119,21 @@ if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] <
                                             <td><?php echo $row["user_id"] ?></td>
                                             <td><?php echo $row["user_name"] ?></td>
                                             <td>
-                                                <?php 
+
+                                                <?php
+
                                                     $choice_arr = str_split($row["user_picks"]);
                                                     $foretag_str = "";
                                                     foreach($choice_arr as $val){
                                                         $foretag = $foretag_arr[$val-1];
                                                         $foretag_str = $foretag_str.$foretag.", ";
                                                     }
-                                                    echo $foretag_str; 
+                                                    echo $foretag_str;
                                                 ?>
                                             </td>
                                         </tr>
-                                    <?php } ?>  
+                                    <?php } ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -134,7 +141,9 @@ if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] <
                     <div class="tab-pane" id="2a">
                         <div class="container admin-tables-column">
                             <div class="row">
-                                <?php 
+
+                                <?php
+
                                     $connection = connect();
                                     $query = "SELECT * FROM foretag";
                                     $result_foretag = $connection->query($query);
@@ -149,7 +158,9 @@ if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] <
                                                 $result = Users::get_users_on_foretag($row["foretag_id"]);
                                                 while ($row = $result->fetch_assoc()) { ?>
                                                     <tr><td><?php echo $row["user_name"] ?></td></tr>
-                                                <?php } ?>  
+
+                                                <?php } ?>
+
 
                                             </table>
                                         </div>

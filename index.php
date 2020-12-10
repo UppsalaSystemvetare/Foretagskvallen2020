@@ -5,7 +5,9 @@ include("include/models/users.php");
 ?>
 
 <body onload="init();">
+
     <!-- Modal -->
+
     <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered modal-dialog-lg" role="document">
             <div class="modal-content">
@@ -14,8 +16,9 @@ include("include/models/users.php");
                     <div class="container-md">
                         <h1>Välkommen till företagskvällen!</h1>
                         <div class="intro-text">
-                            <p>För att vi ska kunna placera dig hos ett företag behöver vi veta vad du heter.
-                                Skriv in ditt för- och efternamn och tryck sen på "Gå vidare"!
+
+                             <p>Fyll i rutan för att delta
+
                             </p>
                         </div>
                         <form>
@@ -26,9 +29,9 @@ include("include/models/users.php");
                         </form>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="contbutton">Gå vidare</button>
-                </div>
+
+                    <button type="button" class="btn btn-primary" id="contbutton">Let's begin</button>
+
             </div>
         </div>
     </div>
@@ -36,7 +39,10 @@ include("include/models/users.php");
     <div class="foretag-wrapper">
         <div class="info">
             <div class="name-holder">
-                <p class="small">Anmäld som:</p>
+
+              <!-- en symbol bredvid namnet som ska indikera på att du är inloggad med följande namn. -->
+                <p class="small"><img src="assets/img/user.png" alt="User" width="15" height="15"></p>
+
                 <h1 class="shadowed">
                     <div class="h1" id="nametag"><?php if (isset($_SESSION['name']) && !empty($_SESSION['name'])) {
                                                         echo $_SESSION['name'];
@@ -45,20 +51,20 @@ include("include/models/users.php");
             </div>
 
             <div class="text-holder">
-                <h2>Dags att välja företag!</h2>
-                <div class="intro-text">
-                    <p>
-                        Flytta runt de 5 företagen och placera de du helst vill besöka högst upp!
-                        Du kan flytta runt dem hur många gånger som helst
-                        under presentationerna och du kommer att förvarnas innan
-                        valen blir låsta. Om du av någon anledning skulle stänga ner sidan eller på annat sätt tappa ditt
-                        inskrivna namn kan du skriva EXAKT samma igen för att undvika dubletter hos oss :)
-                    </p>
-                </div>
+
+                <h2>Dags att rangordna företag!</h2>
+
             </div>
             <div class="foretag-list p-3 border bg-light">
 
-                <p class="small-p">Dra och släpp företagen i önskad ordning.</p>
+                <p class="small-p">Dra och släpp företagen i önskad ordning</p>
+
+                <?php
+                $connection = connect();
+                $query = "SELECT * FROM foretag";
+                $result_foretag = $connection->query($query);
+                $connection = disconnect();
+                ?>
 
                 <?php
                 $connection = connect();
@@ -81,9 +87,29 @@ include("include/models/users.php");
 
             </div>
             <div class="submit_holder">
-                <button type="button" class="btn btn-primary" onclick="updateUserChoice()">Uppdatera val</button>
+                <button type="button" class="btn btn-primary" onclick="updateUserChoice()">Uppdatera</button>
+                <!-- popup  -->
+                <a class="trigger_popup_fricc"><img id="infoIcon" src="assets/img/informationIconRight.png" alt="Information" width="20" height="20"></a>
+                  <div class="hover_bkgr_fricc">
+                    <span class="helper"></span>
+                    <div>
+                      <div class="popupCloseButton">&times;</div>
+                      <p><img id="lightBulbs" src="assets/img/lightBulb.png" alt="Tips" width="45" height="25">Tänk på att placera de företag du helst vill besöka högst upp!</p>
+                      <p><img id="lightBulbs" src="assets/img/lightBulb.png" alt="Tips" width="45" height="25">Du kan flytta runt och ändra dina val hur många gånger som helst
+                     under presentationerna och du kommer att förvarnas innan
+                     valen blir låsta.</p>
+                     <p><img id="lightBulbs" src="assets/img/lightBulb.png" alt="Tips" width="45" height="25">Om du av någon anledning skulle stänga ner sidan eller på annat sätt tappa ditt
+                   inskrivna namn kan du skriva EXAKT samma igen för att undvika dubletter hos oss :)</p>
+                    </div>
+                  </div>
+                  <!-- slut på popup -->
+            </div>
+
+            <div class="intro-text">
+<!-- ta bort om denna inte ska användas? tänk på att ta bort i css osv. -->
             </div>
         </div>
+
 
         <?php
         if (isset($_SESSION['name'])) {
@@ -95,6 +121,7 @@ include("include/models/users.php");
             $row = mysqli_fetch_row($foretag);
         }
         ?>
+
 
         <div class="container givet-foretag">
             <h4>Du har fått en plats hos</h4>
@@ -121,4 +148,6 @@ include("include/models/users.php");
 </body>
 <script src="assets/js/index.js"></script>
 
+
 </html>
+
