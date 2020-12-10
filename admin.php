@@ -3,9 +3,11 @@ include("include/models/header.php");
 include("include/html/default.php");
 include("include/models/users.php");
 
+
 /*if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] < 4){
     header("Location: login.php");
 } tillåter mig att nå adminsidan utan inlogg pga felet :)*/
+
 
 ?>
     <body class="admin-body">
@@ -45,6 +47,7 @@ include("include/models/users.php");
                     </div>
                 </div>
 
+
                 <div class="modal fade" id="AlertModal">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -70,6 +73,7 @@ include("include/models/users.php");
         <div class="container admin-tables">
             <h1>Tabeller </h1>
             <div id="exTab1" class="container">
+
                 <ul class="nav nav-tabs">
                     <li class="nav-item active">
                         <a class="nav-link active" href="#1a" data-toggle="tab">Användares val</a>
@@ -115,7 +119,9 @@ include("include/models/users.php");
                                             <td><?php echo $row["user_id"] ?></td>
                                             <td><?php echo $row["user_name"] ?></td>
                                             <td>
+
                                                 <?php
+
                                                     $choice_arr = str_split($row["user_picks"]);
                                                     $foretag_str = "";
                                                     foreach($choice_arr as $val){
@@ -127,6 +133,7 @@ include("include/models/users.php");
                                             </td>
                                         </tr>
                                     <?php } ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -134,7 +141,9 @@ include("include/models/users.php");
                     <div class="tab-pane" id="2a">
                         <div class="container admin-tables-column">
                             <div class="row">
+
                                 <?php
+
                                     $connection = connect();
                                     $query = "SELECT * FROM foretag";
                                     $result_foretag = $connection->query($query);
@@ -149,7 +158,9 @@ include("include/models/users.php");
                                                 $result = Users::get_users_on_foretag($row["foretag_id"]);
                                                 while ($row = $result->fetch_assoc()) { ?>
                                                     <tr><td><?php echo $row["user_name"] ?></td></tr>
+
                                                 <?php } ?>
+
 
                                             </table>
                                         </div>

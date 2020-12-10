@@ -5,7 +5,9 @@ include("include/models/users.php");
 ?>
 
 <body onload="init();">
-    <!-- Modal-->
+
+    <!-- Modal -->
+
     <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered modal-dialog-lg" role="document">
             <div class="modal-content">
@@ -14,7 +16,9 @@ include("include/models/users.php");
                     <div class="container-md">
                         <h1>Välkommen till företagskvällen!</h1>
                         <div class="intro-text">
+
                              <p>Fyll i rutan för att delta
+
                             </p>
                         </div>
                         <form>
@@ -25,7 +29,9 @@ include("include/models/users.php");
                         </form>
                     </div>
                 </div>
+
                     <button type="button" class="btn btn-primary" id="contbutton">Let's begin</button>
+
             </div>
         </div>
     </div>
@@ -33,8 +39,10 @@ include("include/models/users.php");
     <div class="foretag-wrapper">
         <div class="info">
             <div class="name-holder">
+
               <!-- en symbol bredvid namnet som ska indikera på att du är inloggad med följande namn. -->
                 <p class="small"><img src="assets/img/user.png" alt="User" width="15" height="15"></p>
+
                 <h1 class="shadowed">
                     <div class="h1" id="nametag"><?php if (isset($_SESSION['name']) && !empty($_SESSION['name'])) {
                                                         echo $_SESSION['name'];
@@ -43,11 +51,20 @@ include("include/models/users.php");
             </div>
 
             <div class="text-holder">
+
                 <h2>Dags att rangordna företag!</h2>
+
             </div>
             <div class="foretag-list p-3 border bg-light">
 
                 <p class="small-p">Dra och släpp företagen i önskad ordning</p>
+
+                <?php
+                $connection = connect();
+                $query = "SELECT * FROM foretag";
+                $result_foretag = $connection->query($query);
+                $connection = disconnect();
+                ?>
 
                 <?php
                 $connection = connect();
@@ -93,6 +110,7 @@ include("include/models/users.php");
             </div>
         </div>
 
+
         <?php
         if (isset($_SESSION['name'])) {
 
@@ -103,6 +121,7 @@ include("include/models/users.php");
             $row = mysqli_fetch_row($foretag);
         }
         ?>
+
 
         <div class="container givet-foretag">
             <h4>Du har fått en plats hos</h4>
@@ -129,4 +148,6 @@ include("include/models/users.php");
 </body>
 <script src="assets/js/index.js"></script>
 
+
 </html>
+

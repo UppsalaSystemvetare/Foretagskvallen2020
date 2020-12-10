@@ -7,7 +7,9 @@ body {
     padding: 220px 0;
     -ms-overflow-style: none;
     min-height: 100%;
+
     font-family: 'Rubik', sans-serif;
+
 }
 
 body::-webkit-scrollbar {
@@ -76,6 +78,7 @@ p {
   margin: 20px 0;
 }
 
+
 .foretag-wrapper{
     width: 600px;
     max-width: 100%;
@@ -112,6 +115,13 @@ p {
     cursor: move;
 }
 
+
+.foretag-list{
+    min-height: 100%;
+    margin: 20px 0;
+}
+
+
 .foretag{
     margin: 15px 0;
     border-radius: 50px;
@@ -122,6 +132,7 @@ p {
 }
 
 .btn-primary{
+
     /* background-color: #1b365d !important;
     border-color: #1b365d !important; */
     display: inline-block;
@@ -138,6 +149,7 @@ p {
     cursor: pointer;
     margin: 5px;
     margin-bottom: 20px;
+
 }
 
 #alert-text{
@@ -155,6 +167,7 @@ p {
     .givet-foretag{
         height: auto;
     }
+
 }
 
 /* Popup box BEGIN */
@@ -227,3 +240,5 @@ p {
     text-align: left;
 }
 /* Popup box */
+
+
