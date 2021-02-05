@@ -1,24 +1,33 @@
 .admin-body {
     background-image: none;
-    background-color: #7cade8;
+    background-color: white;
     -ms-overflow-style: none;
-    padding: 100px 0;
+
+}
+
+.form-group {
+  margin-top: 30px;
 }
 
 .admin-controls{
     padding: 40px;
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: #1B365D;
+    border-radius: 20px;
     color: white;
 }
 
 .admin-tables{
     padding: 40px;
-    background-color: rgba(0, 0, 0, 0.45);
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .admin-tables-column{
     padding: 20px 0;
+}
+
+#rightCol{
+  text-align: right;
 }
 
 #exTab1{
@@ -38,6 +47,19 @@ a:hover{
     color: black;
 }
 
+.btn-primary-admin {
+    background-color: #f2ae42;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.btn-primary-admin:hover{
+    background-color: #db9e3e
+}
+
+.newForetag {
+    margin-bottom: 50px;
+}
 
 @media only screen and (max-width: 600px){
     .admin-body{

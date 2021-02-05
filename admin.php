@@ -19,27 +19,27 @@ include("include/models/users.php");
                         <div class="form-group">
                             <label for="number_of_spots">Antal platser per företag</label>
                             <input type="text" class="form-control" name="number_of_spots" placeholder="20" required/>
-                            <small id="emailHelp" class="form-text">Platserna måste räcka åt alla anmälda! (Platser/per företag * företag > antal anmälda)</small>
+                            <small id="emailHelp" class="form-text">Platserna måste räcka åt alla anmälda! (Platser per företag * företag > antal anmälda)</small>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Generera val åt alla (<?php echo Users::get_nr_of_users();?>) användare</button>
+                            <button type="submit" class="btn btn-primary-admin">Generera val åt alla (<?php echo Users::get_nr_of_users();?>) användare</button>
                         </div>
                     </form>
                 </div>
-                <div class="col">
+                <div class="col" id="rightCol">
                     <form type="post" action="include/models/succesRatio.php">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Visa nöje/missnöje</button>
+                            <button type="submit" class="btn btn-primary-admin">Visa nöje/missnöje</button>
                         </div>
                     </form>
                     <form method="post" action="include/models/check_assign.php">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Visa val per företag</button>
+                            <button type="submit" class="btn btn-primary-admin">Visa val per företag</button>
                         </div>
                     </form>
                     <form type="post" action="include/models/testData.php">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Generera Testdata</button>
+                            <button type="submit" class="btn btn-primary-admin">Generera Testdata</button>
                         </div>
                     </form>
                     <div class="form-group">
@@ -87,6 +87,7 @@ include("include/models/users.php");
                 </ul>
 
                 <div class="tab-content clearfix">
+                  <!-- Första fliken -->
                     <div class="tab-pane active" id="1a">
                         <div class="container admin-tables-column">
                             <table class="table table-striped table-bordered table-sm sortable" id="user-table">
@@ -138,6 +139,8 @@ include("include/models/users.php");
                             </table>
                         </div>
                     </div>
+
+                    <!-- Andra fliken -->
                     <div class="tab-pane" id="2a">
                         <div class="container admin-tables-column">
                             <div class="row">
@@ -168,8 +171,57 @@ include("include/models/users.php");
                             </div>
                         </div>
                     </div>
+
+                    <!-- Tredje fliken -->
                     <div class="tab-pane" id="3a">
                         <div class="container admin-tables-column">
+
+                          <!-- Lägg till nytt företag -->
+                          <div class="newForetag">
+                            <form action="models/new_foretag.php">
+                                <fieldset>
+                                    <legend>Lägg till nytt företag</legend>
+                                        Företag: <input type="text" name="newForetag" />
+                                        Klassrum: <input type="text" name="newLocation" />
+                                        <input type ="submit" value ="Save" />
+                                </fieldset>
+                            </form>
+                          </div>
+
+                          <!-- Skapar tabell av alla företag -->
+                            <legend>Ta bort existerande företag</legend>
+                            <table class="table table-striped table-bordered table-sm sortable" id="user-table">
+                                <thead id="table-header">
+                                    <tr>
+                                        <th id="sort-name" scope="col">Id</th>
+                                        <th id="sort-name" scope="col">Företag</th>
+                                        <th id="sort-rank" scope="col">Klassrum</th>
+                                        <th id="delete" scope="col">Ta bort</th>
+                                    </tr>
+                                </thead>
+                                <!-- Innehållet i denna tabell -->
+                                <tbody>
+                                    <?php
+
+                                    $connection = connect();
+                                    $query = "SELECT * FROM foretag";
+                                    $result_foretag = $connection->query($query);
+                                    $connection = disconnect();
+
+                                    while ($row = $result_foretag->fetch_assoc()) { ?>
+                                        <tr>
+                                            <td><?php echo $row["foretag_id"] ?></td>
+                                            <td><?php echo $row["foretag_name"] ?></td>
+                                            <td><?php echo $row["foretag_location"] ?></td>
+                                            <td><div class="form-group">
+                                                <button type="submit" class="btn btn-primary-admin">. (<?php echo Foretag::delete_foretag();?>)</button>
+                                            </div></td>
+
+                                        </tr>
+                                    <?php } ?>
+
+                                </tbody>
+                            </table>
                             sup - under konstruktion
                         </div>
                     </div>

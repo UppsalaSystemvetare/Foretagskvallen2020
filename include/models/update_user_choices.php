@@ -7,8 +7,12 @@
     $connection = connect();
     $query = "SELECT * FROM user_picks WHERE user_name = '$user_name'";
     $result = $connection->query($query);
+
+
     $connection = disconnect();
     
+
+
     $connection = connect();
 
     if(mysqli_num_rows($result) == 0){

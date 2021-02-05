@@ -1,13 +1,11 @@
 
 body {
-    /* background-image: url(../img/background.png); */
+    background-image: url(../img/USlogo.png);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    padding: 220px 0;
+    background-position: center;
+    padding: 20px 0;
     -ms-overflow-style: none;
     min-height: 100%;
-
     font-family: 'Rubik', sans-serif;
 
 }
@@ -27,7 +25,6 @@ h1 {
 
 .shadowed{
     color: #1b365d;
-    text-shadow: 2px 0px #ffffff;
 }
 
 h2{
@@ -68,7 +65,7 @@ p {
 }
 
 .text-holder {
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .foretag-list{
@@ -76,8 +73,8 @@ p {
   background-color: #ffffff;
   min-height: 100%;
   margin: 20px 0;
+  opacity: 0.8;
 }
-
 
 .foretag-wrapper{
     width: 600px;
@@ -88,12 +85,18 @@ p {
 
 .info{
     display: block;
-
     /* background-color: rgb(255, 255, 255, 0.5); */
 }
 
 .givet-foretag{
     text-align: center;
+    width: 500px;
+    background-color: white;
+    border-style: double;
+    border-color: #f2ae42;
+    border-radius: 50px;
+    padding-top: 70px;
+    padding-bottom: 70px;
     display: none;
     position: absolute;
     top: 50%;
@@ -115,12 +118,10 @@ p {
     cursor: move;
 }
 
-
 .foretag-list{
     min-height: 100%;
     margin: 20px 0;
 }
-
 
 .foretag{
     margin: 15px 0;
@@ -129,15 +130,13 @@ p {
 
 .submit_holder{
     text-align: center;
+    margin-bottom: 0px;
 }
 
 .btn-primary{
-
-    /* background-color: #1b365d !important;
-    border-color: #1b365d !important; */
     display: inline-block;
     border-radius: 10px;
-    background-color: #f2ae42;
+    background-color: #1B365D;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -149,23 +148,32 @@ p {
     cursor: pointer;
     margin: 5px;
     margin-bottom: 20px;
+}
 
+.btn-primary:hover{
+    background: #f2ae42;
+}
+
+.btn-primary:disabled{
+    cursor: not-allowed;
+    background-color: grey;
 }
 
 #alert-text{
     text-align: center;
+    margin-bottom: 15px;
 }
 
 @media only screen and (max-width: 600px){
     body{
-        /* background-image: url(../img/background_slim.png); */
+        background-image: url(../img/USlogo.png);
         background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 0% 0%;
+        background-position: center;
     }
 
     .givet-foretag{
         height: auto;
+        width: 350px;
     }
 
 }
@@ -203,26 +211,28 @@ p {
     z-index: 999;
     margin-top: -500px;
 }
+
 .popupCloseButton {
     background-color: #fff;
     border: 3px solid #999;
     border-radius: 50px;
     cursor: pointer;
     display: inline-block;
-    font-family: arial;
     font-weight: bold;
     position: absolute;
     top: -20px;
     right: -20px;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 15px;
+    line-height: 25px;
     width: 30px;
     height: 30px;
     text-align: center;
 }
+
 .popupCloseButton:hover {
     background-color: #ccc;
 }
+
 .trigger_popup_fricc {
     cursor: pointer;
     font-size: 20px;
@@ -236,9 +246,17 @@ p {
     margin-bottom: 15px;
 }
 
+#infoIcon:hover {
+  transform: scaleX(-1);
+}
+
 #lightBulbs {
     text-align: left;
 }
+
+.infoTips {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
 /* Popup box */
-
-

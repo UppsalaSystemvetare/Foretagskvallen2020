@@ -9,6 +9,7 @@ function init(){
     displayname = $("#nametag").html();
     foretag = $(".given-foretag-text").html();
 
+
     if(!displayname || displayname === 0){
         contbutton.prop("disabled", checkInputs()); //gå vidare-knappen låst som default
             
@@ -58,7 +59,7 @@ function SetNameSession(nameval) {
         "include/models/set_name.php",
         payload,
         function successLogin(data, status, xhr){
-            // window.location.href = "index.php";
+            console.log(data);
         }
     );
 }
@@ -84,7 +85,7 @@ function readFromList(){
     var items = ul.getElementsByTagName("li");
     var choices = "";
     for (var i = 0; i < items.length; ++i) {
-        choices += items[i].firstChild.id
+        choices += items[i].firstElementChild.id
     }
     return { name: nameval, order: choices };
 }
