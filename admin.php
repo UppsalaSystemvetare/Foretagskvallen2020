@@ -196,7 +196,7 @@ include("include/models/users.php");
                                         <th id="sort-name" scope="col">Id</th>
                                         <th id="sort-name" scope="col">Företag</th>
                                         <th id="sort-rank" scope="col">Klassrum</th>
-                                        <th id="delete" scope="col">Ta bort</th>
+                                        <th id="delete" scope="col">Kommando</th>
                                     </tr>
                                 </thead>
                                 <!-- Innehållet i denna tabell -->
@@ -213,16 +213,19 @@ include("include/models/users.php");
                                             <td><?php echo $row["foretag_id"] ?></td>
                                             <td><?php echo $row["foretag_name"] ?></td>
                                             <td><?php echo $row["foretag_location"] ?></td>
-                                            <td><div class="form-group">
-                                                <button type="submit" class="btn btn-primary-admin">. (<?php echo Foretag::delete_foretag();?>)</button>
+                                            <td><div class="removeForetag">
+                                              <form action="include/models/remove_foretag.php">
+                                                <fieldset>
+                                                <input type = "hidden" name = "foretag_id" value = "<?php echo $row["foretag_id"] ?>" />
+                                                <input type ="submit" value ="Ta bort" />
+                                              </fieldset>
+                                              </form>
                                             </div></td>
-
                                         </tr>
                                     <?php } ?>
 
                                 </tbody>
                             </table>
-                            sup - under konstruktion
                         </div>
                     </div>
                 </div>
