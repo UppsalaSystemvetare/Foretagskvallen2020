@@ -178,12 +178,12 @@ include("include/models/users.php");
 
                           <!-- Lägg till nytt företag -->
                           <div class="newForetag">
-                            <form action="models/new_foretag.php">
+                            <form action="include/models/new_foretag.php">
                                 <fieldset>
                                     <legend>Lägg till nytt företag</legend>
                                         Företag: <input type="text" name="newForetag" />
                                         Klassrum: <input type="text" name="newLocation" />
-                                        <input type ="submit" value ="Save" />
+                                        <input type ="submit" value ="Lägg till" />
                                 </fieldset>
                             </form>
                           </div>
