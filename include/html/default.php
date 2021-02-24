@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Företagskvällen 2020</title>
+        <title>Företagskvällen 2022</title>
         <meta charset="utf-8">
         <link href="https://uppsalasystemvetare.se/wp-content/themes/uppsalasystemvetare/img/favicon.png" rel="shortcut icon">
         <meta name="viewport" content="width=device-width, initial-scale=1">
