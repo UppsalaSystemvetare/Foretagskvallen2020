@@ -4,9 +4,9 @@ include("include/html/default.php");
 include("include/models/users.php");
 
 
-/*if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] < 4){
+if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] < 4){
     header("Location: login.php");
-} tillåter mig att nå adminsidan utan inlogg pga felet :)*/
+} 
 
 
 ?>
