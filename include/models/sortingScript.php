@@ -4,7 +4,7 @@ include "hungarian.php";
 use RPFK\Hungarian\Hungarian;
 
 $connection = connect();
-$query = "SELECT user_id, user_picks FROM user_picks";
+$query = "SELECT user_id, user_picks FROM user_picks ORDER BY RAND()";
 $result = $connection->query($query);
 
 $query = "SELECT COUNT(foretag_id) FROM foretag";
