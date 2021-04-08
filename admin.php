@@ -16,10 +16,6 @@ if($row_cnt < 1){
 }
 $connection = disconnect();
 
-//if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] < 4){
-//    header("Location: login.php");
-//}
-
 
 ?>
     <body class="admin-body">
