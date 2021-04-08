@@ -3,10 +3,18 @@ include("include/models/header.php");
 include("include/html/default.php");
 include("include/models/users.php");
 
-
-if(!isset($_SESSION['user']) || !isset($_SESSION['rank']) || $_SESSION['rank'] < 4){
+if(!isset($_SESSION['user'])){
     header("Location: login.php");
-} 
+}
+$connection = connect();
+$query = "SELECT * FROM admins WHERE id =" . $_SESSION['user'];
+$result_admins = $connection->query($query);
+$row_cnt = mysqli_num_rows($result_admins);
+
+if($row_cnt < 1){
+    header("Location: login.php");
+}
+$connection = disconnect();
 
 
 ?>
